@@ -1,91 +1,147 @@
+/* ===============================
+   GLOBAL RESET
+================================ */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', sans-serif;
+    font-family: "Segoe UI", sans-serif;
 }
 
+html {
+    color-scheme: dark;
+    background-color: #000;
+}
+
+/* ===============================
+   BACKGROUND
+================================ */
 body {
+    width: 100%;
     height: 100vh;
-   /* background: radial-gradient(circle at top, #0084ff, #000000 70%); */
     display: flex;
     justify-content: center;
     align-items: center;
+
+    background-color: #000;
+    background-image:
+        radial-gradient(circle at top center,
+            rgba(0, 149, 255, 0.233) 0%,
+            rgba(0, 108, 180, 0.25) 30%,
+            rgba(0, 0, 0, 0.95) 65%,
+            #000 100%);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    overflow: hidden;
 }
 
+/* Prevent browser glow bugs */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.15);
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* ===============================
+   GLASS CARD
+================================ */
 .card {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 20px;
+    position: relative;
+    width: 360px;
     padding: 30px;
-    max-width: 400px;
+    border-radius: 22px;
+
+    /* Glass look */
+    background: rgba(25, 25, 25, 0.45);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    /* Soft border + depth */
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.7),
+        inset 0 0 30px rgba(255, 255, 255, 0.05);
+
     text-align: center;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
-.container {
-    display: flex;
-    flex-direction: column;   /* makes buttons vertical */
-    align-items: center;
-
-}
-
-
+/* ===============================
+   TEXT
+================================ */
 h1 {
-    color: #FFFFFF;
-    margin-bottom: 30px;
+    color: #ffffff;
+    font-size: 26px;
+    margin-bottom: 22px;
     letter-spacing: 1px;
 }
 
 p {
-    color: #E0E0E0;
-    margin-bottom: 20px;
-    font-size: 16px;
-    line-height: 1.5;
+    color: #d0d0d0;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 25px;
 }
 
+/* ===============================
+   BUTTON CONTAINER
+================================ */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+/* ===============================
+   BUTTON BASE
+================================ */
 .btn {
     width: 240px;
-    padding: 15px;
-    margin: 15px 0;
-    font-size: 18px;
+    min-height: 52px;
+    padding: 14px 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 17px;
     font-weight: 600;
-    border: none;
+
     border-radius: 50px;
+    border: none;
     cursor: pointer;
+    white-space: nowrap;
+
     color: #000;
-    background: linear-gradient(120deg, #007BFF, #00FFFF); /* Blue-cyan gradient for normal buttons */
-    transition: all 0.4s ease;
-    position: relative;
-    overflow: hidden;
+    background: linear-gradient(120deg, #007bff, #00ffff);
+
+    transition: all 0.3s ease;
 }
 
 .btn:hover {
-    transform: scale(1.07);
-    background: linear-gradient(120deg, #00BFFF, #00FFFF); /* Brighter hover for normal buttons */
+    transform: scale(1.06);
+    background: linear-gradient(120deg, #00bfff, #00ffff);
 }
 
-.vip-btn::before {
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,1), transparent);
-}
-
+/* ===============================
+   VIP BUTTON
+================================ */
 .vip-btn {
-    background: linear-gradient(120deg, #ffa600, #FFFF00); /* Bright yellow-orange gradient for VIP button */
-    filter: brightness(1.2);
-    color: #000;
-    box-shadow: 0 0 20px rgb(255, 238, 0); /* Golden glow */
+    background: linear-gradient(120deg, #ffb000, #ffe600);
+    box-shadow: 0 0 28px rgba(255, 210, 0, 0.85);
 }
 
 .vip-btn:hover {
-    background: linear-gradient(120deg, #ff9100, #ffe600); /* Pink gradient on hover */
-    box-shadow: 0 0 30px rgb(255, 238, 0); /* glow*/
+    background: linear-gradient(120deg, #ff9800, #fff000);
 }
 
-.btn:focus {
-    outline: none;
-}
-
-.btn:active {
+/* ===============================
+   REMOVE FOCUS OUTLINES
+================================ */
+button:focus {
     outline: none;
 }
