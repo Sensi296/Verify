@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     document.getElementById("verifyBtn").addEventListener("click", () => {
-        window.open("https://arolinks.com/zWvq", "_blank");
+        window.open("https://arolinks.com/VyTo", "_blank");
     });
 
 });
