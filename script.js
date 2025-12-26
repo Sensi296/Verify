@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
 
     document.getElementById("buyBtn").addEventListener("click", () => {
-        window.open("https://your-vip-link-here.com", "_blank");
+        window.open("https://t.me/kizenop", "_blank");
     });
 
     document.getElementById("supportBtn").addEventListener("click", () => {
@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     document.getElementById("verifyBtn").addEventListener("click", () => {
-        alert("Verification system coming soon!");
+        window.open("https://arolinks.com/zWvq", "_blank");
     });
 
 });
